@@ -21,10 +21,10 @@ The following functions will be deployed. Users can use this app in the numbered
 
 #### 2) Database Search
    This function is to manage/view users' database. Users can set query criteria, retrieve relevant dataset, and view/modify it
-   - Ship Information (By Name, Size, ETA, Cost, Availability)
-   - Truck Information (By Name, Size, ETA, Cost, Availability)
-   - Cargo Information (By Item, Size, Cost, Expiry, Availability)
-   - Storage Information (By Name, Capacity, ETR, Cost, Acceptable Items, Availability)
+   - Ship Search (By Name, Size, ETA, Cost, Availability)
+   - Truck Search (By Name, Size, ETA, Cost, Availability)
+   - Cargo Search (By Item, Size, Cost, Expiry, Availability)
+   - Storage Search (By Name, Capacity, ETR, Cost, Acceptable Items, Availability)
 
 ####  3) Logistics optimizer
    This function optimizes logistics combinations of Ships, Trucks, Cargoes, and Storages. Users can calibrate the whole open-logistics positions, or 
