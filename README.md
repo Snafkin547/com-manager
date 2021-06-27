@@ -14,14 +14,14 @@ The following functions will be deployed. Users can use this app in the numbered
 
 #### 1) Registration 
    This function is the data entry point for users to create the database. Users can input the following information:
-   - Ship Information (Name, Size, ETA, Cost, Status) : Ship Class
+   - Ship Information (Name, Size, ETA, Cost, Status) : [Ship Class](https://github.com/Snafkin547/logi-ops/blob/351918292e8e8bc30a5e5a9aff9a3ebb563af90d/src/cpw/Ship.java#L3)
    - Truck Information (Name, Size, ETA, Cost, Status) : To be Constructed
-   - Cargo Information (Item, Size, Cost, Expiry, Status) : Cargo Class
+   - Cargo Information (Item, Size, Cost, Expiry, Status) : [Cargo Class](https://github.com/Snafkin547/logi-ops/blob/351918292e8e8bc30a5e5a9aff9a3ebb563af90d/src/cpw/Cargo.java#L3)
    - Storage Information (Name, Capacity, ETR, Cost, Acceptable Items, Status) : To be Constructed
 
 #### 2) Database Search
    This function is to manage/view users' database. Users can set query criteria, retrieve relevant dataset, and view/modify it
-   - Ship Search (By Name, Size, ETA, Cost, Availability) : dbOrganizer Class 
+   - Ship Search (By Name, Size, ETA, Cost, Availability) : [dbOrganizer Class](https://github.com/Snafkin547/logi-ops/blob/351918292e8e8bc30a5e5a9aff9a3ebb563af90d/src/cpw/dbOrganizer.java#L5)
    - Truck Search (By Name, Size, ETA, Cost, Availability) : To be Constructed
    - Cargo Search (By Item, Size, Cost, Expiry, Availability) : To be Constructed
    - Storage Search (By Name, Capacity, ETR, Cost, Acceptable Items, Availability) : To be Constructed
@@ -29,7 +29,7 @@ The following functions will be deployed. Users can use this app in the numbered
 ####  3) Logistics optimizer
    This function optimizes logistics combinations of Ships, Trucks, Cargoes, and Storages. Users can calibrate and find the best match in the whole open-logistics positions, or just some part of the positions, like linking only ships and cargoes that are available and need to be sent within this months.
    - Whole logistics Optimizer : To be Constructed
-   - Cargoes - Ships Optimizer : To be Constructed
+   - Cargoes - Ships Optimizer : [CargoMatching Class](https://github.com/Snafkin547/logi-ops/blob/351918292e8e8bc30a5e5a9aff9a3ebb563af90d/src/cpw/CargoMatching.java#L6)
    - Cargoes/Ships - Storage Optimizer : To be Constructed
    - Cargoes/Storage - Truck Optimizer : To be Constructed
 
