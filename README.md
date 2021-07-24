@@ -17,7 +17,7 @@ The following functions will be deployed. Users can use this app in the numbered
    - Ship Information (Name, Size, ETA, Cost, Status) : [Ship Class](https://github.com/Snafkin547/logi-ops/blob/351918292e8e8bc30a5e5a9aff9a3ebb563af90d/src/cpw/Ship.java#L3)
    - Truck Information (Name, Size, ETA, Cost, Status) : To be Constructed
    - Cargo Information (Item, Size, Cost, Expiry, Status) : [Cargo Class](https://github.com/Snafkin547/logi-ops/blob/351918292e8e8bc30a5e5a9aff9a3ebb563af90d/src/cpw/Cargo.java#L3)
-   - Storage Information (Name, Capacity, Location, Cost, Acceptable Items, Status) : To be Constructed
+   - Storage Information (Name, Capacity, Location, Cost, Acceptable Items, Status) : [Storage] (https://github.com/Snafkin547/logi-ops/blob/483f990c4fe8cda8742c8a2769e04768cf147e8b/src/cpw/Storage.java#L6)
 
 #### 2) Database Search
    This function is to manage/view users' database. Users can set query criteria, retrieve relevant dataset, and view/modify it
