@@ -1,5 +1,6 @@
 package cpw;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -70,8 +71,8 @@ public class CargoMatching {
 		return res;
 	}
 	
-	public static void visualize(List<List<Ship>> ss, List<Cargo> cargoes) {
-		
+	public static void optimizeBrute(List<List<Ship>> ss, List<Cargo> cargoes) {
+		System.out.println("========================Brute Force Ver.========================");
 		//Looping over both ship sequence list and extract one of lists of ships, e.g. [x, y, z]
 				int min=Integer.MAX_VALUE;
 				int index=0;
@@ -109,11 +110,71 @@ public class CargoMatching {
 				}
 				System.out.println(" ");
 				System.out.println("  Total Cost $" + min);
-		
 	}
+	
+	public static void optimizeDynamic(List<List<Ship>> ships, List<Cargo> cargoes) {
+		System.out.println(" ");
+		System.out.println("========================Dynamic Programming Ver.========================");
+		int min=Integer.MAX_VALUE;
+		// Step1) Iniiate the hashmap to retain prior computation (dynamic programming)
+		HashMap<Ship, HashMap<Cargo, Integer>> Combo= new HashMap<Ship, HashMap<Cargo, Integer>>();
+		int index=0;
+		// Step2) Looping over both ship sequence list and extract one of lists of ships, e.g. [x, y, z]
+		for(int i=0;i<ships.size();i++) {
+			int k=i+1;
+			System.out.println("Scenario "+k);
+			List<Ship> s=ships.get(i);
+			int temp=0;
+			//Step3) Sub looping over cargo list and the list of ships extracted above, in order to compute total cost of each pair of cargo and list
+			for(int j=0;j<s.size();j++) {
+				int cost=0;
+				String skip = "";
+				//Step4-1) Checking if a combination of a ship and a cargo has already been explored
+				if(Combo.containsKey(s.get(j))) {
+					//Step4-2) If such combination has existed already, then the duplication is avoided and the prior computation result is referenced
+					if(Combo.get(s.get(j)).containsKey(cargoes.get(j))) {
+						skip="Computation Skipped";
+						cost=Combo.get(s.get(j)).get(cargoes.get(j));
+					}
+					//Step4-3-1) If such combination did not exist yet, then the computation result this time is recorded 
+					else {
+						cost=CostEst(cargoes.get(j),s.get(j));
+						Combo.get(s.get(j)).put(cargoes.get(j), cost);
+					}
+				}
+				//Step4-3-2) If such combination did not exist yet, then the computation result this time is recorded 
+				else {
+					cost=CostEst(cargoes.get(j),s.get(j));
+					Combo.put(s.get(j), new HashMap<Cargo, Integer>());
+					Combo.get(s.get(j)).put(cargoes.get(j), cost);
+					
+				}
+				System.out.println(" Cargo "+cargoes.get(j).getName()+" and Ship " + s.get(j).getName()+" :$"+cost+"  "+skip);
+				temp+=cost;
+			}
+			System.out.println("");
+			/* Comparing temp(total cost of ship-cargo pair at each loop)
+			 * Update min if temp is smaller than the then-latest cheapest pair
+			 * Also update index of the pair for visualization later
+			 */
+			if(min>temp) {
+				min=temp; index=i;
+			}
+		}
+		//  Using the index and min values updated during the loop, this visualize the cheapest shipping plan
+		int k=index + 1;
+		System.out.println("Total cheapest shipping plan is: Scenario" + k);
+		System.out.println(" ");
+		System.out.println("  Cargo    Ship");
+		for(int i=0;i<ships.get(index).size();i++) {
+			System.out.println("  "+cargoes.get(i).getName() + "    and    "+ships.get(index).get(i).getName());
+		}
+		System.out.println(" ");
+		System.out.println("  Total Cost $" + min);
+	}
+
 	/* Implementation (Explanations to follow at each detail)
 	 */
-	
 	public static void main(String[] args) {
 		/* Hard-code register of ships and cargoes
 		 * These three ships and cargoes will be paired and computed their shipping cost
@@ -145,9 +206,14 @@ public class CargoMatching {
 
 		List<List<Ship>> ss = new LinkedList<List<Ship>>();
 		ss=createShipList(ships);
+
+		//invoking dynamic programming version of optimization algorithm
+		optimizeDynamic(ss, cargoes);
+	
+		//invoking BruteForce version of optimization algorithm for comparison and validation
+		optimizeBrute(ss, cargoes);
 		
-		//invoking visualize method with those lists created above
-		visualize(ss, cargoes);
+
 	}
 
 }
