@@ -14,6 +14,8 @@ public class Storage {
 	private String location;
 	private LinkedList<Cargo> items;  // Items inside the storage
 	private LinkedList<String> allowed;
+	private static int counter =0;
+	private int serial;
 	
 	public Storage(){
 	}
@@ -26,10 +28,14 @@ public class Storage {
 	    this.avail=capacity;
 	    this.items=new LinkedList<Cargo>();
 	    this.allowed=new LinkedList<String>();
+		serial = ++counter-1;
 	}
 	// Returns status of a storage
 	public String getStatus() {
 		return status;
+	}
+	public int getSerial() {
+		return serial;
 	}
 	// Returns location of a storage
 	public String getLocation() {

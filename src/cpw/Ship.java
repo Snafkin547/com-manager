@@ -7,12 +7,16 @@ public class Ship {
 	private String status;
 	private String location;
 	private Cargo cargoOnboard;
+	private static int counter =0;
+	private int serial;
 	
 	public Ship(){
 	}
 	public Ship(String name, int cost){
 		this.name=name;
     	this.cost=cost;
+		serial = ++counter-1;
+
 	}
 
 	// Returns a cost of a ship
@@ -22,6 +26,9 @@ public class Ship {
 	// Returns status of a cargo
 	public String getStatus() {
 		return status;
+	}
+	public int getSerial() {
+		return serial;
 	}
 	// Returns location of a cargo
 	public String getLocation() {

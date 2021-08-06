@@ -7,19 +7,25 @@ public class Cargo {
 	private String status;
 	private String location;
 	private Ship shipOnboard;
-	
+	private static int counter =0;
+	private int serial;
+
 	public Cargo(){
+		serial = ++counter;
 	}
 	public Cargo(String name, int weight){
 		this.name=name;
 	    this.weight=weight;
 	    this.status="Unknown";
 	    this.location="Unknown";
-	    
+		serial = ++counter-1;
 	}
 	// Returns status of a cargo
 	public String getStatus() {
 		return status;
+	}
+	public int getSerial() {
+		return serial;
 	}
 	// Returns location of a cargo
 	public String getLocation() {
@@ -80,6 +86,12 @@ public class Cargo {
 		cgo.linkShip(X);
 		
 		System.out.println("Cargo " + cgo.getName()+ " is on Ship "+ cgo.ShipOnBoard().getName());
+
+		System.out.println("Cargo " + cgo.getName()+ "'s serial # is: "+ cgo.getSerial());
+		Cargo cgo2= new Cargo("B", 50);
+		System.out.println("Cargo " + cgo2.getName()+ "'s serial # is: "+ cgo2.getSerial());
+		Cargo cgo3= new Cargo("C", 50);
+		System.out.println("Cargo " + cgo3.getName()+ "'s serial # is: "+ cgo3.getSerial());
 
 	}
 
