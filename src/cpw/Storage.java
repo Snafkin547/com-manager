@@ -1,5 +1,6 @@
 package cpw;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class Storage {
 	private LinkedList<String> allowed;
 	private static int counter =0;
 	private int serial;
+	private Port port;
 	
 	public Storage(){
 	}
@@ -40,6 +42,10 @@ public class Storage {
 	// Returns location of a storage
 	public String getLocation() {
 		return location;
+	}
+	// Returns Port at which a storage is located
+	public Port getPort() {
+		return port;
 	}
 	// Returns weight of a storage
 	public int getCapacity() {
@@ -83,6 +89,12 @@ public class Storage {
 		System.out.println("Location is updated to: "+location);
 
 	}	
+	//Change the Port
+	public void updatePort(Port port) {
+		this.port=port;
+		System.out.println("Port is updated to: "+port.getName());
+
+	}		
 	// Change the Capacity of storage
 	public void updateCapacity(int newCapacity) {
 		if(avail>=newCapacity-inside) {

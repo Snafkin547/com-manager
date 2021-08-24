@@ -1,5 +1,7 @@
 package cpw;
 
+import java.sql.Date;
+
 public class Cargo {
 
 	private  int weight;
@@ -9,16 +11,21 @@ public class Cargo {
 	private Ship shipOnboard;
 	private static int counter =0;
 	private int serial;
+	private int DDY; //Deadline Year
+	private int DDM; //Deadline Month
+	private int DDD; //Deadline Day
+	private String deadline;
+	private Port orign;
+	private Port dest;
 
-	public Cargo(){
-		serial = ++counter;
-	}
 	public Cargo(String name, int weight){
 		this.name=name;
 	    this.weight=weight;
 	    this.status="Unknown";
 	    this.location="Unknown";
 		serial = ++counter-1;
+		deadline= "DD is not set";
+
 	}
 	// Returns status of a cargo
 	public String getStatus() {
@@ -38,6 +45,18 @@ public class Cargo {
 	// Returns a name of a cargo
 	public String getName() {
 		return name;
+	}
+	// Returns a name of a cargo
+	public String getDD() {
+		return deadline;
+	}
+	// Get Origin 
+	public Port getorign() {
+		return orign;
+	}
+	// Get Destination 
+	public Port getDest() {
+		return dest;
 	}
 	//Change the status of cargo
 	public void updateStatus(String newStatus) {
@@ -59,7 +78,24 @@ public class Cargo {
 		this.name=newName;
 		System.out.println("The cargo name is updated to " + name);
 	}
-	
+	//Change the origin of cargo
+	public void changeOrign(Port orign) {
+		this.orign=orign;
+		System.out.println("The cargo origination is updated to " + orign.getName());
+	}
+	//Change the destination of cargo
+	public void changeDest(Port dest) {
+		this.dest=dest;
+		System.out.println("The cargo destination is updated to " + dest.getName());
+	}
+	//Change the name of cargo
+	public void updateDD(int DDY, int DDM, int DDD) {
+		this.DDY=DDY;
+		this.DDM=DDM;
+		this.DDD=DDD;
+		this.deadline=String.valueOf(DDY)+"/"+String.valueOf(DDM)+"/"+String.valueOf(DDD);
+		System.out.println("The cargo name is updated to " + deadline);
+	}
 	public void linkShip(Ship s) {
 		shipOnboard=s;
 		System.out.println(name+" is linked to " + shipOnboard.getName());
@@ -92,8 +128,13 @@ public class Cargo {
 		System.out.println("Cargo " + cgo2.getName()+ "'s serial # is: "+ cgo2.getSerial());
 		Cargo cgo3= new Cargo("C", 50);
 		System.out.println("Cargo " + cgo3.getName()+ "'s serial # is: "+ cgo3.getSerial());
-
-	}
+		
+		System.out.println(cgo.getDD());
+		cgo.updateDD(2021, 8, 11);
+		System.out.println(cgo.DDM);
+		cgo.updateDD(2021, 9, 11);
+		System.out.println(cgo.DDM);
+}
 
 }
 
