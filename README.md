@@ -28,7 +28,7 @@ The following functions will be deployed. Users can use this app in the numbered
 
 ####  3) Logistics optimizer
    This function optimizes logistics combinations of Ships, Trucks, Cargoes, and Storages. Users can calibrate and find the best match in the whole open-logistics positions, or just some part of the positions, like linking only ships and cargoes that are available and need to be sent within this months.
-   - Whole logistics Optimizer : To be Constructed
+   - Whole logistics Optimizer : [CargoMatching class]()
    - Cargoes - Ships Optimizer : [CargoMatching Class](https://github.com/Snafkin547/logi-ops/blob/351918292e8e8bc30a5e5a9aff9a3ebb563af90d/src/cpw/CargoMatching.java#L6)
    - Cargoes/Ships - Storage Optimizer : To be Constructed
    - Cargoes/Storage - Truck Optimizer : To be Constructed
