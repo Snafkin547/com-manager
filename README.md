@@ -37,15 +37,15 @@ Users will be asked to provide Logi-Ops logistics requirements, such as:
 3.	Storage information (Name, Acceptable items, open space for each item, daily cost)
 
 If users input the following sets of information to Logi-Ops:
-### 1.	Ship information 
+### 1.	Ships 
 
  ![image](https://user-images.githubusercontent.com/62607343/138567937-00f9dbe8-d401-48bc-840e-d6cc4deb23a1.png)
 
-### 2.	Cargo information 
+### 2.	Cargos 
 
  ![image](https://user-images.githubusercontent.com/62607343/138567938-4967d352-14c3-46ce-a9f1-cd4a6fe57955.png)
 
-### 3.	Storage information
+### 3.	Storages
 
  ![image](https://user-images.githubusercontent.com/62607343/138567943-f0dd6799-762f-44af-b3aa-c35c3eb596dc.png)
 
@@ -61,8 +61,6 @@ If users input the following sets of information to Logi-Ops:
 2.	In the simple math, the combination of A-3/B-1/C-2 costs the cheapest, $55k/Day(3,000*5+2,000*10+1,000*20), however, this is not feasible because cargo A size(3,000) is bigger than open space in storage 3
 3.	Logi-Ops would then consider the next best combination, A-1/B-3/C-2. This is not acceptable either because Storage 3 does not accept Paper, Cargo B. 
 4.	Finally, the latest best is narrowed down to either A-2/B-1/C-3 or A-3/B-2/C-1, which cost $65k. For the same reason as earlier, only the former is acceptable. Therefore, Logi-Ops will recommend A-2/B-1/C-3 combination.
-![image](https://user-images.githubusercontent.com/62607343/138567935-cf492e7e-d15a-4372-a2f4-0c75e9e6e3f0.png)
-
 
 # Dependeies
 ![image](https://user-images.githubusercontent.com/62607343/138567911-b0a29e05-cbf4-4476-baf2-9b000f1658af.png)
